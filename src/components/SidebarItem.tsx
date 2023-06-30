@@ -1,19 +1,22 @@
 import { LucideIcon, User2 } from "lucide-react";
 import { FC } from "react";
+import Link from "next/link";
 interface SidebarItemProps {
   Icon: LucideIcon;
   sidebarTitle: string;
   isActive?: boolean;
+  href: string;
 }
 
 const SidebarItem: FC<SidebarItemProps> = ({
   sidebarTitle,
   Icon,
   isActive,
+                                             href,
 }) => {
   return (
-    <div
-      className={`flex  w-full px-3 py-4 items-center cursor-pointer ${
+    <Link href={href}
+      className={`flex  w-full px-3 py-4 items-center cursor-pointer hover:bg-[#1f2f55] my-2 ${
         isActive ? "bg-[#1f2f55]" : "transparent"
       }`}
     >
@@ -30,7 +33,7 @@ const SidebarItem: FC<SidebarItemProps> = ({
       >
         {sidebarTitle}
       </p>
-    </div>
+    </Link>
   );
 };
 
